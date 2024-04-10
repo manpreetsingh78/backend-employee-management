@@ -1,0 +1,29 @@
+version: 1.0
+runtime: python3
+build:
+  commands:
+    - apt-get update
+    - apt-get install -y python3 python3-pip
+    - python3 -m pip install --upgrade pip
+    # Add any additional setup commands here
+    - pip install -r requirements.txt
+    # Install Python and pip using a custom script or package manager (if necessary)
+    # Example for Ubuntu/Debian-based systems:
+services:
+  web:
+    source:
+      target: /
+      exclude:
+        - .git
+        - node_modules
+    command:
+      # Specify the command to start your Django application
+      # For example, you might use gunicorn or uwsgi to serve your application
+      # Make sure to replace 'your_wsgi_module' with the appropriate module
+      - gunicorn -b 0.0.0.0:8000 employee_manage.wsgi:application
+    port: 8000
+    healthCheck:
+      command: curl -f http://localhost:8000/health_check
+      interval: 5s
+      timeout: 2s
+      retries: 3
