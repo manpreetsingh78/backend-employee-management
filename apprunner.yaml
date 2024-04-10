@@ -4,9 +4,6 @@ build:
   commands:
     build:
     - pip install -r requirements.txt
-    - pip install psycopg2-binary
-    - python manage makemigrations
-    - python manage migrate
 run:
   runtime-version: 3.8.16
   command: sh startup.sh
