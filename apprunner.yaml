@@ -2,8 +2,17 @@ version: 1.0
 runtime: python3
 build:
   commands:
+    pre-build:
+    - pip install psycopg2-binary
     build:
+    - python -m venv myvenv
+    - cd myvenv
+    - Scripts\activate
     - pip install -r requirements.txt
+    post-build:
+    - python manage.py makemigrations && python manage.py migrate
+    - echo "from django.contrib.auth.models import User; User.objects.create_superuser('boss', 'admin@example.com', 'boss')" | python manage.py shell
+    
 run:
   runtime-version: 3.8.16
   command: sh startup.sh
