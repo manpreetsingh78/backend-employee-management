@@ -108,24 +108,24 @@ WSGI_APPLICATION = 'employee_manage.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'employee',
-#        'USER': 'postgres',
-#        'PASSWORD': 'admin123',
-#        'HOST': 'database-1.cv60ims0up7u.ap-south-1.rds.amazonaws.com',
-#        'PORT': '5432',
-#    }
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 # }
+
+
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'employee',
+       'USER': 'postgres',
+       'PASSWORD': 'admin123',
+       'HOST': 'database-1.cv60ims0up7u.ap-south-1.rds.amazonaws.com',
+       'PORT': '5432',
+   }
+}
 
 
 # Password validation
