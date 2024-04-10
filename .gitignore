@@ -3,3 +3,4 @@ api/__pycache__/
 api/migrations/000*
 api/migrations/__pycache__/
 employee_manage/__pycache__/
+db.sqlite3
